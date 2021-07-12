@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Simple HTML Form</title>
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+    
+</head>
+<body>
+<form name="mlform"  action="\predict" method="post">
+    <h1>Cross Sell Prediction</h1>
+    <div class="row">
+        <label>Gender</label>
+        <div class="form-inline">
+            <label><input type="radio" name="gender" value="male"> Male</label>
+            <label><input type="radio" name="gender" value="female"> Female</label> 
+        </div>
+        <div class="error" id="genderErr"></div>
+    </div> 
+    <div class="row">
+        <label>Age</label>
+        <input type="Number" name="age">
+        <div class="error" id="emailErr"></div>
+    </div>
+    <div class="row">
+        <label>Region Code</label>
+        <input type="Number" name="region" maxlength="10">
+        <div class="error" id="mobileErr"></div>
+    </div>
+    <div class="row">
+        <label>Previously Insured</label>
+        <div class="form-inline">
+            <label><input type="radio" name="p_ins" value="Yes"> Yes</label>
+            <label><input type="radio" name="p_ins" value="No"> No</label> 
+        </div>
+        <div class="error" id="genderErr"></div>
+    </div> 
+    <div class="row">
+        <label>Vehicle Age(in years)</label>
+        <input type="Number" name="v_age">
+        <div class="error" id="emailErr"></div>
+    </div>
+    <div class="row">
+        <label>Is vehicle damaged or not</label>
+        <div class="form-inline">
+            <label><input type="radio" name="v_dam" value="Yes"> Yes</label>
+            <label><input type="radio" name="v_dam" value="No"> No</label> 
+        </div>
+        <div class="error" id="genderErr"></div>
+    </div>
+    <div class="row">
+        <label>Annual Premium</label>
+        <input type="Number" name="annual">
+        <div class="error" id="emailErr"></div>
+    </div> 
+    <div class="row">
+        <label>Policy Sales Channel</label>
+        <input type="Number" name="policy">
+        <div class="error" id="emailErr"></div>
+    </div> 
+    <div class="row">
+        <label>Vintage(in days)</label>
+        <input type="Number" name="vintage">
+        <div class="error" id="emailErr"></div>
+    </div>    
+    <div class="row">
+        <input type="submit" value="Submit">
+    </div>
+    {% if prediction %}
+    <h2 align="center" class="text-centre"> The Response is {{prediction}} </h2>
+    {% endif %}
+</form>
+</body>
+</html>
